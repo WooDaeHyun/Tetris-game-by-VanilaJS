@@ -17,7 +17,7 @@ let tempMovingItem;
 
 
 const movingItem = {
-  type: "tree",
+  type: "",
   direction: 3,
   top: 0,
   left: 0,
@@ -39,7 +39,7 @@ function init() {
   for(let i = 0 ; i < 20; i++) {
     prependNewLine();
   }
-  renderBlocks();
+  generateNewBlock();
 }
 init();
 
@@ -96,6 +96,14 @@ function seizeBlock() {
 }
 
 function generateNewBlock() {
+
+  clearInterval(downInterval);
+  downInterval = setInterval(() => {
+    moveBlock('top',1)
+  }, duration);
+
+
+
   const blockArray = Object.entries(BLOCKS);
   const randomIndex = Math.floor(Math.random() * blockArray.length);
   movingItem.type = blockArray[randomIndex][0]
