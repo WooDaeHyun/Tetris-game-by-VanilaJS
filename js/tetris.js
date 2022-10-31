@@ -73,10 +73,15 @@ function renderBlocks() {
       target.classList.add(type, "moving")
     } else {
       tempMovingItem = { ...movingItem }
-      renderBlocks();
+      setTimeout(()=>{
+        renderBlocks();
+      }, 0)
+      
     }
-    
   })
+  movingItem.left = left;
+  movingItem.top = top;
+  movingItem.direction = direction;
 }
 
 function checkEmpty(target) {
@@ -98,6 +103,7 @@ document.addEventListener("keydown", e => {
       break;
     case 37:
       moveBlock("left", -1);
+      break;
     case 40:
       moveBlock("top", 1);
       break;
