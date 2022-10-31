@@ -32,6 +32,9 @@ const movingItem = {
 
 // functions
 function init() {
+  const blockArray = Object.entries(BLOCKS);
+  const randomIndex = Math.floor(Math.random() * blockArray.length);
+  blockArray[randomIndex][0]
   tempMovingItem = {...movingItem};
   for(let i = 0 ; i < 20; i++) {
     prependNewLine();
@@ -93,6 +96,9 @@ function seizeBlock() {
 }
 
 function generateNewBlock() {
+  const blockArray = Object.entries(BLOCKS);
+  const randomIndex = Math.floor(Math.random() * blockArray.length);
+  movingItem.type = blockArray[randomIndex][0]
   movingItem.top = 0;
   movingItem.left = 3;
   movingItem.direction = 0;
