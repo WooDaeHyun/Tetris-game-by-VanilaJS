@@ -94,6 +94,15 @@ function seizeBlock() {
     moving.classList.remove("moving");
     moving.classList.add("seized");
   })
+  generateNewBlock();
+}
+
+function generateNewBlock() {
+  movingItem.top = 0;
+  movingItem.left = 3;
+  movingItem.direction = 0;
+  tempMovingItem = {...movingItem};
+  renderBlocks();
 }
 
 function checkEmpty(target) {
